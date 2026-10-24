@@ -14,5 +14,17 @@
   <body class="bg-[#090d16] text-gray-100 antialiased overflow-x-hidden min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Fallback for static GitHub Pages root deployments where TypeScript source files cannot be executed
+      setTimeout(function() {
+        var root = document.getElementById('root');
+        if (root && !root.hasChildNodes() && window.location.hostname.includes('github.io')) {
+          var base = window.location.pathname.replace(/\/+$/, '');
+          if (!base.endsWith('/docs')) {
+            window.location.replace(base + '/docs/');
+          }
+        }
+      }, 600);
+    </script>
   </body>
 </html>
