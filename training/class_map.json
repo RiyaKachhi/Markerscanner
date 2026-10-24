@@ -1,0 +1,17 @@
+{
+  "0": { "class": "multimeter", "equipmentId": "multimeter_digital", "hazard": "medium" },
+  "1": { "class": "caliper", "equipmentId": "vernier_caliper", "hazard": "low" },
+  "2": { "class": "micrometer", "equipmentId": "micrometer_screw_gauge", "hazard": "low" },
+  "3": { "class": "oscilloscope", "equipmentId": "oscilloscope", "hazard": "medium" },
+  "4": { "class": "function_generator", "equipmentId": "function_generator", "hazard": "low" },
+  "5": { "class": "power_supply", "equipmentId": "dc_power_supply", "hazard": "medium" },
+  "6": { "class": "breadboard", "equipmentId": "breadboard", "hazard": "low" },
+  "7": { "class": "soldering_iron", "equipmentId": "soldering_iron", "hazard": "high" },
+  "8": { "class": "arduino", "equipmentId": "arduino_uno", "hazard": "low" },
+  "9": { "class": "raspberry_pi", "equipmentId": "raspberry_pi", "hazard": "low" },
+  "10": { "class": "bunsen_burner", "equipmentId": "bunsen_burner", "hazard": "high" },
+  "11": { "class": "beaker", "equipmentId": "beaker_measuring_cylinder", "hazard": "medium" },
+  "12": { "class": "weighing_scale", "equipmentId": "digital_weighing_balance", "hazard": "low" },
+  "13": { "class": "tachometer", "equipmentId": "tachometer_stopwatch", "hazard": "medium" },
+  "14": { "class": "safety_gear", "equipmentId": "safety_gear_kit", "hazard": "low" }
+}

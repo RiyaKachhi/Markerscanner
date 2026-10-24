@@ -1,0 +1,1528 @@
+[
+  {
+    "id": "multimeter_digital",
+    "name": "Digital Multimeter",
+    "nameHi": "डिजिटल मल्टीमीटर",
+    "category": "Electronics",
+    "aliases": ["DMM", "Voltmeter", "Ammeter", "Ohmmeter"],
+    "markerId": 0,
+    "specs": {
+      "DC Voltage Range": "200mV to 1000V (±0.5%)",
+      "AC Voltage Range": "200V to 750V (±1.2%)",
+      "DC Current": "200μA to 10A (±2.0%)",
+      "Resistance": "200Ω to 20MΩ (±0.8%)",
+      "Safety Rating": "CAT III 600V / CAT II 1000V"
+    },
+    "parts": [
+      {
+        "id": "selector_dial",
+        "name": "Rotary Selector Dial",
+        "nameHi": "रोटरी चयन डायल",
+        "bboxAnchor": { "x": 0.50, "y": 0.55 },
+        "markerOffset": { "x": 0.0, "y": -0.8, "z": 0.2 },
+        "detectorClass": "multimeter_dial"
+      },
+      {
+        "id": "port_com",
+        "name": "COM Ground Port (Black)",
+        "nameHi": "COM ग्राउंड पोर्ट (काला)",
+        "bboxAnchor": { "x": 0.50, "y": 0.88 },
+        "markerOffset": { "x": 0.0, "y": -2.2, "z": 0.1 },
+        "detectorClass": "multimeter_com_port"
+      },
+      {
+        "id": "port_vomega",
+        "name": "VΩmA Input Port (Red)",
+        "nameHi": "VΩmA इनपुट पोर्ट (लाल)",
+        "bboxAnchor": { "x": 0.72, "y": 0.88 },
+        "markerOffset": { "x": 1.2, "y": -2.2, "z": 0.1 },
+        "detectorClass": "multimeter_v_port"
+      },
+      {
+        "id": "port_10a",
+        "name": "10A High Current Port (Red)",
+        "nameHi": "10A उच्च करंट पोर्ट (लाल)",
+        "bboxAnchor": { "x": 0.28, "y": 0.88 },
+        "markerOffset": { "x": -1.2, "y": -2.2, "z": 0.1 },
+        "detectorClass": "multimeter_10a_port"
+      },
+      {
+        "id": "lcd_display",
+        "name": "LCD Readout Screen",
+        "nameHi": "एलसीडी स्क्रीन",
+        "bboxAnchor": { "x": 0.50, "y": 0.22 },
+        "markerOffset": { "x": 0.0, "y": 1.2, "z": 0.1 },
+        "detectorClass": "multimeter_display"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Insert the black test lead firmly into the COM (Common) negative terminal.",
+        "textHi": "काले परीक्षण लीड को COM (कॉमन) टर्मिनल में मजबूती से लगाएं।",
+        "targetPartId": "port_com",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "COM is the circuit ground reference for all measurement modes."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Insert the red lead into the VΩmA jack for voltage or resistance testing.",
+        "textHi": "वोल्टेज या प्रतिरोध मापने के लिए लाल लीड को VΩmA पोर्ट में लगाएं।",
+        "targetPartId": "port_vomega",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Use the 10A fused terminal only when testing currents above 200mA."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Turn the rotary selector knob to your desired measurement range (e.g. DCV 20V).",
+        "textHi": "रोटरी नॉब को इच्छित माप सीमा (जैसे DCV 20V) पर घुमाएं।",
+        "targetPartId": "selector_dial",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Always select a range higher than the anticipated voltage to protect the meter."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Touch probes to the test circuit nodes and read the stable value on the LCD.",
+        "textHi": "सर्किट नोड्स पर प्रोब स्पर्श करें और एलसीडी पर स्थिर मान पढ़ें।",
+        "targetPartId": "lcd_display",
+        "arrow": "forward",
+        "expectedValue": "5.00V",
+        "tip": "Ensure your fingers do not touch the metal probe tips."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never measure resistance or continuity on an energized, powered-on circuit.",
+      "Never switch measurement modes (e.g., from volts to amps) while connected to live voltage.",
+      "Check probe insulation for cracks or exposed copper before connecting to mains.",
+      "Ensure current shunt fuses are not blown before trusting current readings."
+    ],
+    "safetyPrecautionsHi": [
+      "पावर चालू सर्किट पर कभी भी प्रतिरोध (Resistance) या निरंतरता का परीक्षण न करें।",
+      "लाइव वोल्टेज से जुड़े होने पर कभी भी मोड (वोल्ट से एम्पीयर) न बदलें।",
+      "उपयोग से पहले जांचें कि प्रोब इंसुलेशन फटा या खुला तो नहीं है।"
+    ],
+    "requiredPPE": ["Safety Glasses", "Insulated Gloves (above 50V)"],
+    "hazardLevel": "medium",
+    "commonMistakes": [
+      "Plugging red probe into 10A terminal while measuring voltage creates a dead short circuit.",
+      "Leaving the dial on resistance mode while testing high voltage blows internal fuses."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-use-a-multimeter",
+    "staffReviewed": {
+      "by": "Prof. R. Sharma (Dept of Electrical Engg)",
+      "date": "2026-02-14"
+    }
+  },
+  {
+    "id": "vernier_caliper",
+    "name": "Vernier Caliper",
+    "nameHi": "वर्नियर कैलिपर",
+    "category": "Mechanical",
+    "aliases": ["Caliper", "Slide Caliper"],
+    "markerId": 1,
+    "specs": {
+      "Measurement Range": "0 - 150 mm (0 - 6 inches)",
+      "Least Count": "0.02 mm (metric) / 0.001 inch (imperial)",
+      "Material": "Hardened Stainless Steel",
+      "Operating Temperature": "20°C standard reference"
+    },
+    "parts": [
+      {
+        "id": "external_jaws",
+        "name": "Lower External Measuring Jaws",
+        "nameHi": "निचले बाहरी मापने वाले जबड़े",
+        "bboxAnchor": { "x": 0.20, "y": 0.65 },
+        "markerOffset": { "x": -1.5, "y": -0.5, "z": 0.0 },
+        "detectorClass": "caliper_ext_jaws"
+      },
+      {
+        "id": "internal_jaws",
+        "name": "Upper Internal Measuring Jaws",
+        "nameHi": "ऊपरी आंतरिक जबड़े",
+        "bboxAnchor": { "x": 0.20, "y": 0.25 },
+        "markerOffset": { "x": -1.5, "y": 1.0, "z": 0.0 },
+        "detectorClass": "caliper_int_jaws"
+      },
+      {
+        "id": "locking_screw",
+        "name": "Slide Lock Thumbscrew",
+        "nameHi": "स्लाइड लॉकिंग स्क्रू",
+        "bboxAnchor": { "x": 0.45, "y": 0.25 },
+        "markerOffset": { "x": 0.2, "y": 0.8, "z": 0.1 },
+        "detectorClass": "caliper_screw"
+      },
+      {
+        "id": "vernier_scale",
+        "name": "Vernier Sliding Scale",
+        "nameHi": "वर्नियर स्लाइडिंग पैमाना",
+        "bboxAnchor": { "x": 0.45, "y": 0.48 },
+        "markerOffset": { "x": 0.2, "y": 0.0, "z": 0.0 },
+        "detectorClass": "caliper_scale"
+      },
+      {
+        "id": "depth_probe",
+        "name": "Extendable Depth Gauge Blade",
+        "nameHi": "गहराई मापने वाली ब्लेड",
+        "bboxAnchor": { "x": 0.90, "y": 0.48 },
+        "markerOffset": { "x": 2.5, "y": 0.0, "z": 0.0 },
+        "detectorClass": "caliper_depth"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Close the jaws completely and verify the zero line matches the main scale (zero error check).",
+        "textHi": "जबड़ों को पूरी तरह बंद करें और शून्य त्रुटि (Zero error) की जांच करें।",
+        "targetPartId": "external_jaws",
+        "arrow": "left",
+        "expectedValue": "0.00 mm",
+        "tip": "Wipe dirt or oil from measuring faces before taking critical measurements."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Loosen the locking thumbscrew to allow free sliding motion.",
+        "textHi": "स्लाइडिंग गति के लिए लॉकिंग स्क्रू को ढीला करें।",
+        "targetPartId": "locking_screw",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Do not force the slide if the screw is tightened."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Place the workpiece securely between the lower external jaws.",
+        "textHi": "वस्तु को निचले बाहरी जबड़ों के बीच रखें।",
+        "targetPartId": "external_jaws",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Apply gentle, uniform thumb pressure to avoid flexing the jaws."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Read the main scale division, then find the Vernier mark that aligns perfectly.",
+        "textHi": "मुख्य पैमाना पढ़ें, फिर संरेखित वर्नियर रेखा का मान जोड़ें।",
+        "targetPartId": "vernier_scale",
+        "arrow": "down",
+        "expectedValue": "24.50 mm",
+        "tip": "Formula: Total = Main Scale + (Vernier Division × 0.02 mm)."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never measure rotating or moving machine parts (lathe, milling cutter).",
+      "Do not use calipers as a pry bar, wrench, or hammer.",
+      "Store inside the padded wooden or plastic box when finished."
+    ],
+    "safetyPrecautionsHi": [
+      "घूमते हुए या चलते हुए पुर्जों (जैसे खराद मशीन) को कभी न मापें।",
+      "कैलिपर का उपयोग हथौड़े या रिंच के रूप में न करें।",
+      "काम पूरा होने के बाद बॉक्स में सुरक्षित रखें।"
+    ],
+    "requiredPPE": ["Safety Glasses", "Shop Coat"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Parallax error when looking at the Vernier scale from an angle.",
+      "Overtightening jaws onto soft materials causing indentation and inaccurate readings."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Calipers",
+    "staffReviewed": {
+      "by": "Dr. V. Kulkarni (Mech Workshop Lead)",
+      "date": "2026-02-10"
+    }
+  },
+  {
+    "id": "micrometer_screw_gauge",
+    "name": "Micrometer Screw Gauge",
+    "nameHi": "माइक्रोमीटर स्क्रू गेज",
+    "category": "Mechanical",
+    "aliases": ["Screw Gauge", "Outside Micrometer"],
+    "markerId": 2,
+    "specs": {
+      "Measurement Range": "0 - 25 mm",
+      "Least Count / Pitch": "0.01 mm / 0.5 mm pitch",
+      "Spindle Face": "Carbide-tipped hardened flat anvils",
+      "Accuracy": "±0.002 mm"
+    },
+    "parts": [
+      {
+        "id": "anvil_spindle",
+        "name": "Anvil & Spindle Measuring Faces",
+        "nameHi": "एनविल और स्पिंडल मापने वाले सिरे",
+        "bboxAnchor": { "x": 0.25, "y": 0.40 },
+        "markerOffset": { "x": -1.2, "y": 0.2, "z": 0.0 },
+        "detectorClass": "micrometer_anvil"
+      },
+      {
+        "id": "circular_thimble",
+        "name": "Circular Rotating Thimble",
+        "nameHi": "घूमने वाला थिम्बल",
+        "bboxAnchor": { "x": 0.70, "y": 0.45 },
+        "markerOffset": { "x": 1.0, "y": 0.0, "z": 0.0 },
+        "detectorClass": "micrometer_thimble"
+      },
+      {
+        "id": "ratchet_stop",
+        "name": "Ratchet Stop Click Knob",
+        "nameHi": "रैचेट स्टॉप नॉब",
+        "bboxAnchor": { "x": 0.90, "y": 0.45 },
+        "markerOffset": { "x": 1.8, "y": 0.0, "z": 0.0 },
+        "detectorClass": "micrometer_ratchet"
+      },
+      {
+        "id": "lock_nut",
+        "name": "Spindle Locking Lever",
+        "nameHi": "स्पिंडल लॉकिंग लीवर",
+        "bboxAnchor": { "x": 0.48, "y": 0.38 },
+        "markerOffset": { "x": -0.1, "y": 0.4, "z": 0.0 },
+        "detectorClass": "micrometer_lock"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Clean the anvil and spindle faces and check for zero error using the ratchet stop.",
+        "textHi": "एनविल और स्पिंडल के सिरों को साफ करें और रैचेट का उपयोग करके शून्य त्रुटि जांचें।",
+        "targetPartId": "anvil_spindle",
+        "arrow": "right",
+        "expectedValue": "0.00 mm",
+        "tip": "Record whether the zero error is positive or negative for final correction."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Place sample wire/sheet between anvil and spindle, rotate thimble until close.",
+        "textHi": "नमूने को एनविल और स्पिंडल के बीच रखें और थिम्बल को घुमाएं।",
+        "targetPartId": "circular_thimble",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Use the main thimble only until the faces are about 1 mm from the workpiece."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Turn the ratchet stop until it clicks 3 times to ensure calibrated contact force.",
+        "textHi": "रैचेट स्टॉप को 3 बार 'क्लिक' करने तक घुमाएं ताकि सही दबाव मिले।",
+        "targetPartId": "ratchet_stop",
+        "arrow": "right",
+        "expectedValue": null,
+        "tip": "CRITICAL: Never tighten with the thimble directly or you will distort the frame."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Engage the locking lever and read linear pitch scale plus circular head divisions.",
+        "textHi": "लॉक लीवर लगाएं और मुख्य पैमाना व गोलाकार पैमाना पढ़ें।",
+        "targetPartId": "lock_nut",
+        "arrow": "down",
+        "expectedValue": "5.42 mm",
+        "tip": "Total = Linear Scale + (Circular Division × 0.01 mm) ± Zero Correction."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never turn the thimble forcibly past resistance without using the ratchet.",
+      "Do not drop the micrometer; frame deformation destroys precision permanently."
+    ],
+    "safetyPrecautionsHi": [
+      "रैचेट के बिना थिम्बल को जोर से कभी न घुमाएं।",
+      "माइक्रोमीटर को जमीन पर गिरने से बचाएं; मुड़ने पर यह खराब हो जाता है।"
+    ],
+    "requiredPPE": ["Safety Glasses"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Applying excessive pressure by rotating the thimble instead of the ratchet stop.",
+      "Misreading half-millimeter marks on the sleeve below the datum line."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Micrometer",
+    "staffReviewed": { "by": "Dr. V. Kulkarni", "date": "2026-02-10" }
+  },
+  {
+    "id": "oscilloscope",
+    "name": "Digital Storage Oscilloscope (DSO)",
+    "nameHi": "डिजिटल स्टोरेज ऑसिलोस्कोप",
+    "category": "Electronics",
+    "aliases": ["DSO", "O-Scope", "Scope"],
+    "markerId": 3,
+    "specs": {
+      "Bandwidth": "100 MHz (2 Channel)",
+      "Real-time Sample Rate": "1 GSa/s",
+      "Memory Depth": "24 Mpts",
+      "Max Input Voltage": "300V RMS CAT I",
+      "Display": "7 inch TFT Color LCD (800x480)"
+    },
+    "parts": [
+      {
+        "id": "ch1_input",
+        "name": "Channel 1 BNC Input",
+        "nameHi": "चैनल 1 बीएनसी इनपुट",
+        "bboxAnchor": { "x": 0.65, "y": 0.80 },
+        "markerOffset": { "x": 0.8, "y": -1.5, "z": 0.2 },
+        "detectorClass": "scope_ch1"
+      },
+      {
+        "id": "vertical_knob",
+        "name": "Vertical Volts/Div Knob",
+        "nameHi": "वर्टिकल वोल्ट/डिव नॉब",
+        "bboxAnchor": { "x": 0.68, "y": 0.50 },
+        "markerOffset": { "x": 0.9, "y": 0.0, "z": 0.2 },
+        "detectorClass": "scope_v_knob"
+      },
+      {
+        "id": "horizontal_knob",
+        "name": "Horizontal Time/Div Knob",
+        "nameHi": "हॉरिजॉन्टल टाइम/डिव नॉब",
+        "bboxAnchor": { "x": 0.85, "y": 0.50 },
+        "markerOffset": { "x": 1.6, "y": 0.0, "z": 0.2 },
+        "detectorClass": "scope_h_knob"
+      },
+      {
+        "id": "autoset_button",
+        "name": "AUTOSET Quick Capture Button",
+        "nameHi": "ऑटोसेट क्विक कैप्चर बटन",
+        "bboxAnchor": { "x": 0.88, "y": 0.25 },
+        "markerOffset": { "x": 1.7, "y": 1.0, "z": 0.2 },
+        "detectorClass": "scope_auto_btn"
+      },
+      {
+        "id": "scope_screen",
+        "name": "Waveform Display Area",
+        "nameHi": "वेवफॉर्म डिस्प्ले",
+        "bboxAnchor": { "x": 0.32, "y": 0.45 },
+        "markerOffset": { "x": -1.0, "y": 0.2, "z": 0.1 },
+        "detectorClass": "scope_screen"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Connect the BNC probe to Channel 1 and clip the black alligator clip to the circuit ground.",
+        "textHi": "BNC प्रोब को चैनल 1 से जोड़ें और काले क्लिप को सर्किट ग्राउंड से जोड़ें।",
+        "targetPartId": "ch1_input",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "CRITICAL: The probe ground clip connects to earth ground. Never connect it to live voltage!"
+      },
+      {
+        "stepNumber": 2,
+        "text": "Press the green AUTOSET button to automatically scale horizontal and vertical bases.",
+        "textHi": "तरंग को स्वचालित रूप से समायोजित करने के लिए AUTOSET बटन दबाएं।",
+        "targetPartId": "autoset_button",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Autoset configures trigger, timebase, and volts/div for repetitive signals."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Fine tune Vertical scale (Volts/Div) until waveform fills roughly 70% of screen height.",
+        "textHi": "वर्टिकल नॉब घुमाकर तरंग का आयाम स्क्रीन के 70% भाग में लाएं।",
+        "targetPartId": "vertical_knob",
+        "arrow": "forward",
+        "expectedValue": "2.00V/div",
+        "tip": "Check probe 1X/10X attenuation switch matches the channel menu setting."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Adjust Horizontal scale (Sec/Div) to view 2 to 4 complete signal periods.",
+        "textHi": "हॉरिजॉन्टल नॉब घुमाकर 2 से 4 पूर्ण तरंग चक्र प्रदर्शित करें।",
+        "targetPartId": "horizontal_knob",
+        "arrow": "forward",
+        "expectedValue": "1.00ms/div",
+        "tip": "Use Trigger Level knob if the wave scrolls continuously across the screen."
+      }
+    ],
+    "safetyPrecautions": [
+      "Oscilloscope probe ground clips are connected directly to earth ground! Connecting probe ground to live high voltage will cause a violent short circuit and destroy the scope.",
+      "Use differential high-voltage probes when measuring mains-connected circuits.",
+      "Check probe rating: 1X mode typically rated for 300V max; 10X mode up to 600V."
+    ],
+    "safetyPrecautionsHi": [
+      "ऑसिलोस्कोप ग्राउंड क्लिप सीधे अर्थ ग्राउंड से जुड़ा होता है! इसे कभी भी हाई वोल्टेज पर न लगाएं।",
+      "मेन्स सर्किट को मापने के लिए आइसोलेटेड या डिफरेंशियल प्रोब का उपयोग करें।"
+    ],
+    "requiredPPE": ["Safety Glasses", "ESD Wrist Strap"],
+    "hazardLevel": "medium",
+    "commonMistakes": [
+      "Ground loop short circuit caused by clipping the probe ground to a non-zero potential point.",
+      "Reading 10x too small voltage because probe is set to 10X but scope channel is set to 1X."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://www.tek.com/en/documents/primer/oscilloscope-basics",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "function_generator",
+    "name": "DDS Function Generator",
+    "nameHi": "फंक्शन जनरेटर",
+    "category": "Electronics",
+    "aliases": ["Signal Generator", "Arbitrary Waveform Generator", "AWG"],
+    "markerId": 4,
+    "specs": {
+      "Frequency Range": "1 μHz to 25 MHz (Sine/Square)",
+      "Waveforms": "Sine, Square, Ramp, Pulse, Noise, Arb",
+      "Output Amplitude": "1 mVpp to 10 Vpp (into 50Ω load)",
+      "Output Impedance": "50 Ω typical"
+    },
+    "parts": [
+      {
+        "id": "ch1_out",
+        "name": "CH1 Main Output BNC Jack",
+        "nameHi": "CH1 मुख्य आउटपुट बीएनसी जैक",
+        "bboxAnchor": { "x": 0.75, "y": 0.78 },
+        "markerOffset": { "x": 1.2, "y": -1.2, "z": 0.2 },
+        "detectorClass": "func_ch1_out"
+      },
+      {
+        "id": "waveform_buttons",
+        "name": "Waveform Selection Keys (Sine/Square/Ramp)",
+        "nameHi": "वेवफॉर्म चयन कुंजी",
+        "bboxAnchor": { "x": 0.40, "y": 0.45 },
+        "markerOffset": { "x": -0.5, "y": 0.0, "z": 0.2 },
+        "detectorClass": "func_wave_btn"
+      },
+      {
+        "id": "param_encoder",
+        "name": "Parameter Adjustment Rotary Knob",
+        "nameHi": "पैरामीटर एडजस्टमेंट नॉब",
+        "bboxAnchor": { "x": 0.85, "y": 0.45 },
+        "markerOffset": { "x": 1.6, "y": 0.0, "z": 0.2 },
+        "detectorClass": "func_knob"
+      },
+      {
+        "id": "output_toggle",
+        "name": "Output ON/OFF Button",
+        "nameHi": "आउटपुट चालू/बंद बटन",
+        "bboxAnchor": { "x": 0.75, "y": 0.60 },
+        "markerOffset": { "x": 1.2, "y": -0.5, "z": 0.2 },
+        "detectorClass": "func_out_btn"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Select the desired waveform (Sine, Square, or Triangle) using front panel buttons.",
+        "textHi": "पैनल बटन दबाकर इच्छित वेवफॉर्म (साइन, स्क्वायर, ट्रायंगल) चुनें।",
+        "targetPartId": "waveform_buttons",
+        "arrow": "down",
+        "expectedValue": "Sine 1 kHz",
+        "tip": "Square wave has rapid rise times suitable for digital clock injection."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Dial the frequency (e.g., 1.000 kHz) and amplitude (e.g., 2.00 Vpp) with the knob.",
+        "textHi": "रोटरी नॉब से आवृत्ति और आयाम सेट करें।",
+        "targetPartId": "param_encoder",
+        "arrow": "forward",
+        "expectedValue": "1.00 kHz / 2.00 Vpp",
+        "tip": "Verify if load impedance setting is High-Z or 50 Ohm to prevent double-voltage errors."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Attach a 50Ω BNC to alligators cable onto the CH1 Main Output terminal.",
+        "textHi": "50Ω BNC केबल को CH1 आउटपुट टर्मिनल से जोड़ें।",
+        "targetPartId": "ch1_out",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Ensure the alligator clips are not touching each other before enabling output."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Press the illuminated Output ON/OFF button to feed signal to the circuit.",
+        "textHi": "सर्किट में सिग्नल भेजने के लिए आउटपुट ON बटन दबाएं।",
+        "targetPartId": "output_toggle",
+        "arrow": "down",
+        "expectedValue": "ACTIVE",
+        "tip": "Button turns green or blue when the output stage is actively energized."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never inject signals into a node connected to mains or unknown high voltages.",
+      "Observe load termination: feeding signal into an inductive coil without snubber may reflect high back-EMF spikes into the generator output stage."
+    ],
+    "safetyPrecautionsHi": [
+      "अज्ञात उच्च वोल्टेज नोड में कभी सिग्नल न भेजें।",
+      "शॉर्ट सर्किट से बचने के लिए आउटपुट चालू करने से पहले कनेक्शन जांचें।"
+    ],
+    "requiredPPE": ["Safety Glasses"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Leaving generator set to 50Ω load when testing open-circuit op-amp inputs leads to twice the displayed voltage."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Function_generator",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "dc_power_supply",
+    "name": "Regulated DC Power Supply",
+    "nameHi": "रेगुलेटेड डीसी पावर सप्लाई",
+    "category": "Electronics",
+    "aliases": ["Bench PSU", "Linear Power Supply", "Lab PSU"],
+    "markerId": 5,
+    "specs": {
+      "Output Voltage": "0 - 30 V DC (Continuously variable)",
+      "Output Current": "0 - 5 A (Current limiting)",
+      "Line Regulation": "CV ≤ 0.01% + 3mV",
+      "Ripple & Noise": "≤ 1 mVrms (5Hz - 1MHz)"
+    },
+    "parts": [
+      {
+        "id": "voltage_knob",
+        "name": "Voltage Regulation Knob (Coarse/Fine)",
+        "nameHi": "वोल्टेज रेगुलेशन नॉब",
+        "bboxAnchor": { "x": 0.40, "y": 0.60 },
+        "markerOffset": { "x": -0.6, "y": -0.3, "z": 0.2 },
+        "detectorClass": "psu_v_knob"
+      },
+      {
+        "id": "current_knob",
+        "name": "Current Limit Knob",
+        "nameHi": "करंट लिमिट नॉब",
+        "bboxAnchor": { "x": 0.60, "y": 0.60 },
+        "markerOffset": { "x": 0.4, "y": -0.3, "z": 0.2 },
+        "detectorClass": "psu_i_knob"
+      },
+      {
+        "id": "terminal_positive",
+        "name": "Red Positive (+) Terminal",
+        "nameHi": "लाल धनात्मक (+) टर्मिनल",
+        "bboxAnchor": { "x": 0.35, "y": 0.85 },
+        "markerOffset": { "x": -0.8, "y": -1.6, "z": 0.1 },
+        "detectorClass": "psu_pos_term"
+      },
+      {
+        "id": "terminal_negative",
+        "name": "Black Negative (-) Terminal",
+        "nameHi": "काला ऋणात्मक (-) टर्मिनल",
+        "bboxAnchor": { "x": 0.65, "y": 0.85 },
+        "markerOffset": { "x": 0.8, "y": -1.6, "z": 0.1 },
+        "detectorClass": "psu_neg_term"
+      },
+      {
+        "id": "power_switch",
+        "name": "Main AC Rocker Power Switch",
+        "nameHi": "मुख्य पावर स्विच",
+        "bboxAnchor": { "x": 0.15, "y": 0.85 },
+        "markerOffset": { "x": -1.8, "y": -1.6, "z": 0.1 },
+        "detectorClass": "psu_pwr_switch"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Turn the Voltage knob fully counter-clockwise before switching on the power.",
+        "textHi": "पावर चालू करने से पहले वोल्टेज नॉब को पूरी तरह बायीं ओर घुमाएं।",
+        "targetPartId": "voltage_knob",
+        "arrow": "down",
+        "expectedValue": "0.00 V",
+        "tip": "Prevents power-on surges from damaging sensitive microcontrollers."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Switch on the main power rocker switch and verify meters display 0V.",
+        "textHi": "मुख्य पावर स्विच चालू करें और 0V डिस्प्ले सत्यापित करें।",
+        "targetPartId": "power_switch",
+        "arrow": "right",
+        "expectedValue": null,
+        "tip": "Wait 2 seconds for internal filter capacitors to charge smoothly."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Adjust the Current Limit knob to a safe ceiling (e.g., 500mA for breadboard circuits).",
+        "textHi": "करंट लिमिट नॉब को सुरक्षित सीमा (जैसे 500mA) पर सेट करें।",
+        "targetPartId": "current_knob",
+        "arrow": "forward",
+        "expectedValue": "0.50 A",
+        "tip": "Current limiting enters Constant Current (CC) mode to protect against short circuits."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Connect red wire to (+) terminal and black wire to (-) terminal of your circuit.",
+        "textHi": "लाल तार को (+) और काले तार को (-) टर्मिनल से जोड़ें।",
+        "targetPartId": "terminal_positive",
+        "arrow": "down",
+        "expectedValue": "5.00 V",
+        "tip": "Double check circuit polarity; reversed polarity permanently destroys ICs."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never short-circuit the red and black terminals at high current settings.",
+      "Check polarity before connecting polarized electrolytic capacitors or ICs.",
+      "Ensure earth ground (green terminal) is utilized if low common-mode noise is needed."
+    ],
+    "safetyPrecautionsHi": [
+      "अधिक करंट पर लाल और काले टर्मिनलों को आपस में न छुएं।",
+      "इलेक्ट्रोलाइटिक कैपेसिटर जोड़ने से पहले ध्रुवीयता (+/-) की जांच करें।"
+    ],
+    "requiredPPE": ["Safety Glasses"],
+    "hazardLevel": "medium",
+    "commonMistakes": [
+      "Connecting positive rail to negative breadboard bus, blowing microcontroller chips instantly.",
+      "Forgetting to set the current limit, causing traces to burn during initial circuit bring-up."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Power_supply",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "breadboard",
+    "name": "Solderless Breadboard",
+    "nameHi": "सोल्डरलेस ब्रेडबोर्ड",
+    "category": "Electronics",
+    "aliases": ["Protoboard", "Plugboard"],
+    "markerId": 6,
+    "specs": {
+      "Tie Points": "830 tie points (630 terminal + 200 power distribution)",
+      "Max Recommended Voltage": "36 V DC",
+      "Max Recommended Current": "1.5 A",
+      "Pitch / Lead Size": "2.54 mm (0.1 inch) pitch / 20-29 AWG"
+    },
+    "parts": [
+      {
+        "id": "power_rails",
+        "name": "Side Power Bus Distribution Rails (+ / -)",
+        "nameHi": "साइड पावर बस रेल्स",
+        "bboxAnchor": { "x": 0.10, "y": 0.50 },
+        "markerOffset": { "x": -2.0, "y": 0.0, "z": 0.05 },
+        "detectorClass": "bb_power_rail"
+      },
+      {
+        "id": "center_divider",
+        "name": "Center IC Isolation Trench (DIP Divider)",
+        "nameHi": "सेंटर आईसी आइसोलेशन खाई",
+        "bboxAnchor": { "x": 0.50, "y": 0.50 },
+        "markerOffset": { "x": 0.0, "y": 0.0, "z": 0.05 },
+        "detectorClass": "bb_center_trench"
+      },
+      {
+        "id": "terminal_strips",
+        "name": "5-Hole Column Terminal Strips",
+        "nameHi": "5-छिद्र टर्मिनल स्ट्रिप्स",
+        "bboxAnchor": { "x": 0.50, "y": 0.28 },
+        "markerOffset": { "x": 0.0, "y": 0.8, "z": 0.05 },
+        "detectorClass": "bb_terminal_strip"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Mount Dual In-line Package (DIP) ICs across the central isolation trench.",
+        "textHi": "आईसी (IC) को मध्य विभाजन खाई (Center trench) के ऊपर लगाएं।",
+        "targetPartId": "center_divider",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "The trench isolates opposing pins on the chip so they do not short together."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Distribute regulated +5V and GND along the blue (-) and red (+) lateral rails.",
+        "textHi": "+5V और ग्राउंड को साइड की लाल (+) और नीली (-) पट्टियों से जोड़ें।",
+        "targetPartId": "power_rails",
+        "arrow": "left",
+        "expectedValue": "+5.0V / GND",
+        "tip": "Note: On some long boards, the power rail is split in the middle; add jumper wires."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Connect components into the 5-hole interconnected column nodes.",
+        "textHi": "घटकों को 5-छिद्रों वाली लंबवत पंक्तियों में जोड़ें।",
+        "targetPartId": "terminal_strips",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Each 5-hole column is a single electrical node under the plastic casing."
+      }
+    ],
+    "safetyPrecautions": [
+      "Disconnect power before plugging or unplugging sensitive semiconductor components.",
+      "Never pass currents greater than 1.5A through breadboard clips; excessive heat melts the plastic housing."
+    ],
+    "safetyPrecautionsHi": [
+      "घटकों को लगाने या हटाने से पहले पावर सप्लाई बंद कर दें।",
+      "1.5A से अधिक करंट न गुजारें; ब्रेडबोर्ड पिघल सकता है।"
+    ],
+    "requiredPPE": ["Safety Glasses"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Placing an IC entirely on one side of the trench, shorting each opposite pin pair together.",
+      "Forgetting that power buses might be interrupted halfway down the length of the board."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Breadboard",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "soldering_iron",
+    "name": "Temperature-Controlled Soldering Station",
+    "nameHi": "तापमान-नियंत्रित सोल्डरिंग स्टेशन",
+    "category": "Electronics",
+    "aliases": ["Soldering Station", "Solder Pencil", "Iron"],
+    "markerId": 7,
+    "specs": {
+      "Operating Temperature": "200°C to 480°C (392°F to 896°F)",
+      "Power Rating": "60W - 80W ESD Safe",
+      "Tip Type": "Conical / Chisel Plated Iron",
+      "Warm-up Time": "15 seconds to 350°C"
+    },
+    "parts": [
+      {
+        "id": "iron_tip",
+        "name": "Heated Copper Plated Tip (350°C+)",
+        "nameHi": "गर्म सोल्डरिंग टिप (350°C+)",
+        "bboxAnchor": { "x": 0.80, "y": 0.40 },
+        "markerOffset": { "x": 1.5, "y": 0.3, "z": 0.1 },
+        "detectorClass": "solder_tip"
+      },
+      {
+        "id": "insulated_grip",
+        "name": "Silicone Insulated Handle Grip",
+        "nameHi": "सिलिकॉन इंसुलेटेड हैंडल",
+        "bboxAnchor": { "x": 0.45, "y": 0.45 },
+        "markerOffset": { "x": 0.0, "y": 0.0, "z": 0.1 },
+        "detectorClass": "solder_grip"
+      },
+      {
+        "id": "safety_stand",
+        "name": "Heat-Resistant Cradle Stand & Brass Wool",
+        "nameHi": "हीट-रेसिस्टेंट स्टैंड और ब्रास वूल",
+        "bboxAnchor": { "x": 0.20, "y": 0.70 },
+        "markerOffset": { "x": -1.5, "y": -1.0, "z": 0.0 },
+        "detectorClass": "solder_stand"
+      },
+      {
+        "id": "temp_dial",
+        "name": "Temperature Dial & Power Switch",
+        "nameHi": "तापमान डायल एवं स्विच",
+        "bboxAnchor": { "x": 0.20, "y": 0.35 },
+        "markerOffset": { "x": -1.5, "y": 0.8, "z": 0.1 },
+        "detectorClass": "solder_base"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Inspect the cable, place iron in the metal cradle, and turn temperature to 350°C for lead-free solder.",
+        "textHi": "आयरन को मेटल स्टैंड में रखें और तापमान 350°C पर सेट करें।",
+        "targetPartId": "temp_dial",
+        "arrow": "down",
+        "expectedValue": "350°C",
+        "tip": "Never rest a hot iron directly on the workbench surface."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Clean the hot tip in brass wire wool or damp cellulose sponge to strip dark oxides.",
+        "textHi": "गर्म टिप को ब्रास वूल या नम स्पंज में साफ करें।",
+        "targetPartId": "safety_stand",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "A shiny silver tip ensures rapid heat conduction to the joint."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Hold iron strictly by the insulated grip, touch tip simultaneously to pad and component lead.",
+        "textHi": "आयरन को केवल इंसुलेटेड ग्रिप से पकड़ें और टिप को जोड़ पर लगाएं।",
+        "targetPartId": "iron_tip",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Heat the metal joint for 1.5 seconds before feeding solder wire."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Feed solder wire into the heated joint (not onto the tip), remove iron, and let cool undisturbed.",
+        "textHi": "सोल्डर वायर को गर्म जोड़ पर लगाएं, फिर आयरन हटा लें।",
+        "targetPartId": "iron_tip",
+        "arrow": "up",
+        "expectedValue": null,
+        "tip": "Do not move the wire while joint is solidifying to avoid cold/crystallized joints."
+      }
+    ],
+    "safetyPrecautions": [
+      "HIGH BURN HAZARD: The tip operates at 350°C - 450°C. Severe 3rd-degree burns occur instantly on contact.",
+      "FUME HAZARD: Solder flux fumes contain rosin and acids that irritate lungs. Turn ON fume extractor or work in cross-ventilation.",
+      "LEAD TOXICITY: If using tin-lead (Sn63/Pb37) solder, wash hands thoroughly after finishing. Never eat or drink near bench.",
+      "FIRE HAZARD: Always return iron to metal safety stand immediately after every single joint."
+    ],
+    "safetyPrecautionsHi": [
+      "गंभीर जलन का खतरा: टिप 350°C से ऊपर गर्म होती है। त्वचा से संपर्क न होने दें।",
+      "धुआं फेफड़ों के लिए हानिकारक है: फ्यूम एक्सट्रैक्टर चालू रखें।",
+      "सोल्डरिंग के बाद हाथ अच्छी तरह धोएं। कभी भी खाने की वस्तुएं पास न रखें।"
+    ],
+    "requiredPPE": ["Safety Goggles", "Heat-Resistant Mat", "Fume Extractor Active"],
+    "hazardLevel": "high",
+    "commonMistakes": [
+      "Melting solder on the tip and carrying it to the joint (causes flux burn-off and dry joint).",
+      "Touching the metallic barrel with fingers while holding like a pencil.",
+      "Leaving the iron powered on unattended on the desk."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://learn.sparkfun.com/tutorials/how-to-solder-through-hole-soldering",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "arduino_uno",
+    "name": "Arduino Uno R3",
+    "nameHi": "आर्डुइनो यूनो R3",
+    "category": "Robotics",
+    "aliases": ["Arduino", "Uno", "ATmega328P Development Board"],
+    "markerId": 8,
+    "specs": {
+      "Microcontroller": "ATmega328P @ 16 MHz",
+      "Operating Voltage": "5V (Input limits: 6-20V on VIN / Barrel)",
+      "Digital I/O Pins": "14 (of which 6 provide 8-bit PWM)",
+      "Analog Input Pins": "6 (10-bit resolution)",
+      "DC Current per I/O Pin": "20 mA max (40 mA absolute limit)"
+    },
+    "parts": [
+      {
+        "id": "usb_type_b",
+        "name": "USB Type-B Port (Data & 5V Power)",
+        "nameHi": "यूएसबी टाइप-बी पोर्ट",
+        "bboxAnchor": { "x": 0.15, "y": 0.25 },
+        "markerOffset": { "x": -1.5, "y": 1.2, "z": 0.1 },
+        "detectorClass": "uno_usb"
+      },
+      {
+        "id": "barrel_jack",
+        "name": "DC Barrel Power Jack (7-12V Center Positive)",
+        "nameHi": "डीसी बैरल पावर जैक",
+        "bboxAnchor": { "x": 0.15, "y": 0.75 },
+        "markerOffset": { "x": -1.5, "y": -1.2, "z": 0.1 },
+        "detectorClass": "uno_barrel"
+      },
+      {
+        "id": "digital_headers",
+        "name": "Digital I/O Pin Headers (Pins 0 to 13)",
+        "nameHi": "डिजिटल पिन हेडर",
+        "bboxAnchor": { "x": 0.55, "y": 0.12 },
+        "markerOffset": { "x": 0.2, "y": 1.6, "z": 0.05 },
+        "detectorClass": "uno_digital_pins"
+      },
+      {
+        "id": "power_analog_headers",
+        "name": "Power & Analog In Headers (5V, 3.3V, GND, A0-A5)",
+        "nameHi": "पावर और एनालॉग हेडर",
+        "bboxAnchor": { "x": 0.55, "y": 0.88 },
+        "markerOffset": { "x": 0.2, "y": -1.6, "z": 0.05 },
+        "detectorClass": "uno_analog_pins"
+      },
+      {
+        "id": "reset_button",
+        "name": "Hardware Reset Pushbutton",
+        "nameHi": "हार्डवेयर रीसेट बटन",
+        "bboxAnchor": { "x": 0.22, "y": 0.15 },
+        "markerOffset": { "x": -1.2, "y": 1.5, "z": 0.1 },
+        "detectorClass": "uno_reset_btn"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Connect the board to your computer using a standard USB Type-B cable.",
+        "textHi": "यूएसबी टाइप-बी केबल का उपयोग करके बोर्ड को कंप्यूटर से जोड़ें।",
+        "targetPartId": "usb_type_b",
+        "arrow": "left",
+        "expectedValue": "5.0V ON",
+        "tip": "Green 'ON' LED illuminates when the 5V bus is active."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Connect sensors to Analog In pins (A0-A5) and actuators to Digital pins (2-13).",
+        "textHi": "सेंसर को एनालॉग पिन (A0-A5) और आउटपुट को डिजिटल पिन (2-13) से जोड़ें।",
+        "targetPartId": "digital_headers",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Remember pins 0 and 1 are shared with hardware Serial communication (TX/RX)."
+      },
+      {
+        "stepNumber": 3,
+        "text": "If powering without USB, connect a 9V battery or 12V adapter to the DC barrel jack.",
+        "textHi": "बिना कंप्यूटर के चलाने के लिए डीसी जैक में 9V-12V एडॉप्टर लगाएं।",
+        "targetPartId": "barrel_jack",
+        "arrow": "left",
+        "expectedValue": "9-12V DC",
+        "tip": "The onboard linear regulator steps 9V down to clean 5.0V for the microcontroller."
+      },
+      {
+        "stepNumber": 4,
+        "text": "Press the reset button if you need to restart code execution from `setup()`.",
+        "textHi": "प्रोग्राम को दोबारा शुरू करने के लिए रीसेट बटन दबाएं।",
+        "targetPartId": "reset_button",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Pins default to high-impedance INPUT state during reset cycle."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never draw more than 20mA from an individual I/O pin (do not connect motors or heavy relays directly).",
+      "Never place the bare PCB on metal surfaces or foil while powered.",
+      "Exceeding 5.5V on digital I/O pins will destroy the internal clamp diodes and microcontroller core."
+    ],
+    "safetyPrecautionsHi": [
+      "किसी भी पिन से 20mA से ज्यादा करंट न लें (मोटर सीधे न जोड़ें)।",
+      "चालू स्थिति में बोर्ड को धातु की मेज पर न रखें, शॉर्ट सर्किट हो सकता है।",
+      "डिजिटल पिन पर 5.5V से अधिक वोल्टेज कभी न दें।"
+    ],
+    "requiredPPE": ["ESD Wrist Strap", "Safety Glasses"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Connecting DC motors directly to Arduino pins instead of through a transistor or motor driver.",
+      "Shorting the 5V rail to GND while testing with conductive breadboard jumpers."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://docs.arduino.cc/hardware/uno-rev3/",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "raspberry_pi",
+    "name": "Raspberry Pi 4 Model B",
+    "nameHi": "रास्पबेरी पाई 4 मॉडल बी",
+    "category": "Robotics",
+    "aliases": ["RPi 4", "Single Board Computer", "SBC"],
+    "markerId": 9,
+    "specs": {
+      "Processor": "Broadcom BCM2711, Quad-core Cortex-A72 (ARM v8) 64-bit @ 1.5GHz",
+      "RAM": "4GB / 8GB LPDDR4-3200 SDRAM",
+      "Power Requirement": "5V DC via USB-C connector (minimum 3.0A)",
+      "GPIO": "Standard 40-pin header (3.3V logic LEVEL ONLY)"
+    },
+    "parts": [
+      {
+        "id": "gpio_header",
+        "name": "40-Pin GPIO Expansion Header (3.3V Logic)",
+        "nameHi": "40-पिन जीपीआईओ हेडर (3.3V लॉजिक)",
+        "bboxAnchor": { "x": 0.50, "y": 0.12 },
+        "markerOffset": { "x": 0.0, "y": 1.6, "z": 0.1 },
+        "detectorClass": "rpi_gpio"
+      },
+      {
+        "id": "usbc_power",
+        "name": "USB Type-C 5V 3A Power Input",
+        "nameHi": "यूएसबी टाइप-सी पावर इनपुट",
+        "bboxAnchor": { "x": 0.15, "y": 0.85 },
+        "markerOffset": { "x": -1.6, "y": -1.4, "z": 0.1 },
+        "detectorClass": "rpi_usbc"
+      },
+      {
+        "id": "micro_hdmi",
+        "name": "Dual Micro-HDMI Video Output Ports",
+        "nameHi": "माइक्रो-एचडीएमआई पोर्ट्स",
+        "bboxAnchor": { "x": 0.35, "y": 0.88 },
+        "markerOffset": { "x": -0.6, "y": -1.5, "z": 0.1 },
+        "detectorClass": "rpi_hdmi"
+      },
+      {
+        "id": "ethernet_usb",
+        "name": "Gigabit Ethernet & USB 3.0 Jacks",
+        "nameHi": "ईथरनेट और यूएसबी 3.0 पोर्ट",
+        "bboxAnchor": { "x": 0.85, "y": 0.50 },
+        "markerOffset": { "x": 1.6, "y": 0.0, "z": 0.2 },
+        "detectorClass": "rpi_ports"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Insert a flashed microSD card running Raspberry Pi OS into the underside card slot.",
+        "textHi": "निचले स्लॉट में रास्पबेरी पाई ओएस वाली माइक्रोएसडी कार्ड लगाएं।",
+        "targetPartId": "usbc_power",
+        "arrow": "left",
+        "expectedValue": null,
+        "tip": "Ensure the system is fully unpowered before inserting or removing the SD card."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Connect your monitor to Micro-HDMI Port 0 and plug in USB keyboard/mouse.",
+        "textHi": "मॉनिटर को माइक्रो-एचडीएमआई पोर्ट 0 से और कीबोर्ड-माउस को यूएसबी से जोड़ें।",
+        "targetPartId": "micro_hdmi",
+        "arrow": "down",
+        "expectedValue": "1080p / 4K",
+        "tip": "Port 0 is the one nearest to the USB-C power input."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Plug in an approved 5V 3.0A USB-C power supply to initiate the boot sequence.",
+        "textHi": "बूट शुरू करने के लिए 5V 3A यूएसबी-सी पावर एडॉप्टर लगाएं।",
+        "targetPartId": "usbc_power",
+        "arrow": "down",
+        "expectedValue": "5.1V 3A",
+        "tip": "Red LED indicates stable 5V input power; green ACT LED blinks with SD card activity."
+      },
+      {
+        "stepNumber": 4,
+        "text": "When interfacing GPIO, ensure all signals use strictly 3.3V logic (NOT 5V).",
+        "textHi": "जीपीआईओ जोड़ते समय ध्यान रहे कि सिग्नल 3.3V का हो (5V नहीं)।",
+        "targetPartId": "gpio_header",
+        "arrow": "down",
+        "expectedValue": "3.3V Max",
+        "tip": "Unlike Arduino, Raspberry Pi GPIO pins are NOT 5V tolerant."
+      }
+    ],
+    "safetyPrecautions": [
+      "NO 5V TOLERANCE: Applying 5V directly to any GPIO pin will permanently destroy the SoC processor.",
+      "Always perform a software shutdown (`sudo poweroff`) before unplugging the power cable to prevent SD card filesystem corruption.",
+      "Provide active cooling fan or heatsink; CPU throttles performance at 80°C."
+    ],
+    "safetyPrecautionsHi": [
+      "जीपीआईओ पर 5V सहनशीलता नहीं है: 5V देने से प्रोसेसर तुरंत खराब हो जाएगा।",
+      "पावर केबल हटाने से पहले हमेशा सॉफ्टवेयर से शटडाउन (`sudo poweroff`) करें।"
+    ],
+    "requiredPPE": ["ESD Wrist Strap"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Plugging 5V sensors directly into 3.3V GPIO without level-shifters.",
+      "Yanking the power plug while Linux is writing to the SD card, corrupting the root filesystem."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html",
+    "staffReviewed": { "by": "Prof. R. Sharma", "date": "2026-02-14" }
+  },
+  {
+    "id": "bunsen_burner",
+    "name": "Lab Bunsen Burner",
+    "nameHi": "बुन्सेन बर्नर",
+    "category": "Measurement",
+    "aliases": ["Gas Burner", "Teclu Burner", "Lab Burner"],
+    "markerId": 10,
+    "specs": {
+      "Fuel Type": "LPG or Natural Gas (Methane)",
+      "Flame Temperature": "Roaring Blue Flame up to 1500°C (Luminous yellow ~1000°C)",
+      "Base Construction": "Die-cast heavy zinc-alloy anti-tip base",
+      "Tube Diameter": "11-13 mm brass / nickel-plated chimney"
+    },
+    "parts": [
+      {
+        "id": "air_collar",
+        "name": "Rotatable Air Hole Collar",
+        "nameHi": "घूमने वाला एयर कॉलर (हवा छिद्र)",
+        "bboxAnchor": { "x": 0.50, "y": 0.65 },
+        "markerOffset": { "x": 0.0, "y": -0.5, "z": 0.1 },
+        "detectorClass": "bunsen_collar"
+      },
+      {
+        "id": "gas_needle_valve",
+        "name": "Gas Inlet Needle Valve & Hose Spud",
+        "nameHi": "गैस इनलेट वाल्व और होज़ नोज़ल",
+        "bboxAnchor": { "x": 0.25, "y": 0.85 },
+        "markerOffset": { "x": -1.2, "y": -1.5, "z": 0.0 },
+        "detectorClass": "bunsen_valve"
+      },
+      {
+        "id": "burner_chimney",
+        "name": "Vertical Chimney Barrel / Flame Zone",
+        "nameHi": "ऊर्ध्वाधर चिमनी / ज्वाला क्षेत्र",
+        "bboxAnchor": { "x": 0.50, "y": 0.30 },
+        "markerOffset": { "x": 0.0, "y": 1.2, "z": 0.1 },
+        "detectorClass": "bunsen_chimney"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Inspect the rubber gas hose for dry rot or cracks, and close the air collar completely.",
+        "textHi": "गैस नली की जांच करें और एयर कॉलर को पूरी तरह बंद रखें।",
+        "targetPartId": "air_collar",
+        "arrow": "down",
+        "expectedValue": "Closed",
+        "tip": "Closing the air hole creates a cool, luminous yellow safety flame when lit."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Hold a friction striker or long lighter 5 cm above the chimney, then crack open the gas valve.",
+        "textHi": "स्ट्राइकर को चिमनी से 5 सेमी ऊपर रखें, फिर गैस वाल्व खोलें।",
+        "targetPartId": "burner_chimney",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Never turn on the gas without the ignition source ready at the rim."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Rotate the air collar open to introduce oxygen until a non-luminous roaring blue cone forms.",
+        "textHi": "नीली तीव्र लौ बनाने के लिए एयर कॉलर को घुमाकर खोलें।",
+        "targetPartId": "air_collar",
+        "arrow": "right",
+        "expectedValue": "Roaring Blue (1500°C)",
+        "tip": "The hottest part of the flame is just above the inner light-blue cone apex."
+      },
+      {
+        "stepNumber": 4,
+        "text": "When temporarily pausing heating, turn the collar back to closed yellow 'safety' flame.",
+        "textHi": "काम रोकते समय एयर कॉलर बंद करके पीली 'सुरक्षा' लौ पर कर दें।",
+        "targetPartId": "air_collar",
+        "arrow": "left",
+        "expectedValue": "Yellow Safety",
+        "tip": "The yellow flame is highly visible so bystanders do not accidentally reach across it."
+      }
+    ],
+    "safetyPrecautions": [
+      "EXTREME FIRE & EXPLOSION HAZARD: Never use near flammable solvents (ethanol, acetone, ether).",
+      "TIE BACK LONG HAIR and remove dangling clothing, scarves, and ties before lighting.",
+      "FLASHBACK DANGER: If flame begins burning inside the tube with a green/hissing sound, shut off the gas valve immediately from the wall outlet.",
+      "NEVER LEAVE AN OPEN FLAME UNATTENDED even for a few seconds."
+    ],
+    "safetyPrecautionsHi": [
+      "अत्यधिक आग का खतरा: ज्वलनशील पदार्थों (जैसे एसीटोन, अल्कोहल) से दूर रखें।",
+      "लंबे बाल बांधें और ढीले कपड़े न पहनें।",
+      "जलते हुए बर्नर को कभी भी अकेला न छोड़ें।"
+    ],
+    "requiredPPE": ["Safety Goggles", "Flame-Retardant Lab Coat", "Heat-Resistant Crucible Tongs"],
+    "hazardLevel": "high",
+    "commonMistakes": [
+      "Lighting the burner with the air collar wide open, blowing the flame out or causing strike-back.",
+      "Reaching across the burner to grab glassware instead of walking around."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Bunsen_burner",
+    "staffReviewed": { "by": "Dr. A. Verma (Chemistry Dept)", "date": "2026-02-12" }
+  },
+  {
+    "id": "beaker_measuring_cylinder",
+    "name": "Graduated Measuring Cylinder & Beaker",
+    "nameHi": "मापक सिलेंडर एवं बीकर",
+    "category": "Measurement",
+    "aliases": ["Graduated Cylinder", "Glassware", "Beaker"],
+    "markerId": 11,
+    "specs": {
+      "Capacity Range": "100 mL / 250 mL / 500 mL Class A",
+      "Material": "Borosilicate Glass 3.3 (Thermal shock resistant to 150°C)",
+      "Tolerance": "±0.5 mL at 20°C calibrated TD (To Deliver)"
+    },
+    "parts": [
+      {
+        "id": "meniscus_line",
+        "name": "Graduation Markings / Meniscus Line",
+        "nameHi": "पैमाना अंकन / मेनिस्कस रेखा",
+        "bboxAnchor": { "x": 0.50, "y": 0.45 },
+        "markerOffset": { "x": 0.0, "y": 0.2, "z": 0.0 },
+        "detectorClass": "glass_meniscus"
+      },
+      {
+        "id": "pour_spout",
+        "name": "Pouring Spout Rim",
+        "nameHi": "तरल डालने वाला मुहाना (स्पाउट)",
+        "bboxAnchor": { "x": 0.35, "y": 0.15 },
+        "markerOffset": { "x": -0.5, "y": 1.4, "z": 0.0 },
+        "detectorClass": "glass_spout"
+      },
+      {
+        "id": "hex_base",
+        "name": "Heavy Hexagonal Anti-Roll Base",
+        "nameHi": "षट्कोणीय भारी आधार",
+        "bboxAnchor": { "x": 0.50, "y": 0.90 },
+        "markerOffset": { "x": 0.0, "y": -1.5, "z": 0.0 },
+        "detectorClass": "glass_base"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Place the cylinder on a flat, level bench surface over a white paper card.",
+        "textHi": "सिलेंडर को समतल सतह पर रखें।",
+        "targetPartId": "hex_base",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "The hexagonal base prevents rolling if knocked over sideways."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Slowly pour liquid into the cylinder until near the required target volume mark.",
+        "textHi": "वांछित निशान के करीब तक धीरे-धीरे तरल डालें।",
+        "targetPartId": "pour_spout",
+        "arrow": "down",
+        "expectedValue": null,
+        "tip": "Use a Pasteur pipette or wash bottle for the final few drops."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Align your eye horizontally with the fluid line and read the bottom of the curved meniscus.",
+        "textHi": "आंख को तरल के स्तर पर रखें और घुमावदार मेनिस्कस के निचले भाग का पाठ्यांक लें।",
+        "targetPartId": "meniscus_line",
+        "arrow": "forward",
+        "expectedValue": "100.0 mL",
+        "tip": "For water and clear aqueous solutions, always read the bottom concave curve."
+      }
+    ],
+    "safetyPrecautions": [
+      "Check glass for chips, 'star cracks', or sharp rim defects before adding liquids.",
+      "Never heat measuring cylinders directly with an open flame; cylinders lose volumetric calibration when expanded.",
+      "In case of chemical breakage, alert supervisor immediately and sweep with dustpan (never hands)."
+    ],
+    "safetyPrecautionsHi": [
+      "इस्तेमाल से पहले जांचें कि कांच टूटा या चटका हुआ तो नहीं है।",
+      "मापक सिलेंडर को कभी भी सीधे आग पर गर्म न करें, इसका अंशांकन खराब हो जाता है।"
+    ],
+    "requiredPPE": ["Chemical Splash Goggles", "Nitrile Gloves", "Lab Coat"],
+    "hazardLevel": "medium",
+    "commonMistakes": [
+      "Reading the top edge of the water curve instead of the bottom concave meniscus.",
+      "Looking down from above or up from below, generating parallax errors up to 5 mL."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Graduated_cylinder",
+    "staffReviewed": { "by": "Dr. A. Verma", "date": "2026-02-12" }
+  },
+  {
+    "id": "digital_weighing_balance",
+    "name": "Precision Analytical Balance",
+    "nameHi": "परिशुद्धता डिजिटल तराजू",
+    "category": "Measurement",
+    "aliases": ["Lab Scale", "Gram Scale", "Analytical Balance"],
+    "markerId": 12,
+    "specs": {
+      "Max Capacity": "220 g",
+      "Readability / Resolution": "0.0001 g (0.1 mg)",
+      "Pan Diameter": "90 mm Stainless Steel",
+      "Draft Shield": "3-door glass draft protection chamber"
+    },
+    "parts": [
+      {
+        "id": "weighing_pan",
+        "name": "Stainless Steel Weighing Pan",
+        "nameHi": "स्टेनलेस स्टील पैन",
+        "bboxAnchor": { "x": 0.50, "y": 0.50 },
+        "markerOffset": { "x": 0.0, "y": 0.0, "z": 0.1 },
+        "detectorClass": "scale_pan"
+      },
+      {
+        "id": "tare_button",
+        "name": "TARE / Zero Button",
+        "nameHi": "टियर (TARE) / शून्य बटन",
+        "bboxAnchor": { "x": 0.75, "y": 0.82 },
+        "markerOffset": { "x": 1.2, "y": -1.4, "z": 0.1 },
+        "detectorClass": "scale_tare_btn"
+      },
+      {
+        "id": "spirit_level",
+        "name": "Circular Spirit Bubble Level & Feet",
+        "nameHi": "स्पिरिट बबल लेवल इंडिकेटर",
+        "bboxAnchor": { "x": 0.20, "y": 0.82 },
+        "markerOffset": { "x": -1.2, "y": -1.4, "z": 0.1 },
+        "detectorClass": "scale_bubble"
+      },
+      {
+        "id": "draft_doors",
+        "name": "Sliding Glass Draft Shield Doors",
+        "nameHi": "कांच की ड्राफ्ट शील्ड खिड़की",
+        "bboxAnchor": { "x": 0.50, "y": 0.25 },
+        "markerOffset": { "x": 0.0, "y": 1.2, "z": 0.1 },
+        "detectorClass": "scale_doors"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Inspect the bubble level on the back and adjust leveling feet until centered.",
+        "textHi": "बबल लेवल देखें और पैरों को घुमाकर बुलबुले को केंद्र में लाएं।",
+        "targetPartId": "spirit_level",
+        "arrow": "down",
+        "expectedValue": "Centered",
+        "tip": "An unlevel scale introduces tilt cosine errors in mass calculation."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Place clean weighing boat on the pan and press TARE to zero out the container mass.",
+        "textHi": "वजन करने वाली कटोरी रखें और TARE बटन दबाकर शून्य करें।",
+        "targetPartId": "tare_button",
+        "arrow": "down",
+        "expectedValue": "0.0000 g",
+        "tip": "Never place chemical powders directly onto the metal weighing pan."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Add sample with a clean spatula, close the glass draft doors, and wait for stability star (*).",
+        "textHi": "नमूना रखें, कांच के दरवाजे बंद करें और स्थिर होने तक प्रतीक्षा करें।",
+        "targetPartId": "draft_doors",
+        "arrow": "down",
+        "expectedValue": "2.4512 g",
+        "tip": "Room air currents from HVAC will cause 0.1mg balances to drift continuously if doors are open."
+      }
+    ],
+    "safetyPrecautions": [
+      "Never exceed the maximum 220g load limit; shock loads ruin the delicate electromagnetic force restoration cell.",
+      "Do not weigh hot or cold objects; thermal buoyancy and convection currents cause massive weight errors."
+    ],
+    "safetyPrecautionsHi": [
+      "220 ग्राम से अधिक वजन न रखें; सेंसर खराब हो सकता है।",
+      "गर्म या बहुत ठंडी वस्तुओं का वजन न करें, तापमान से गलत मान आता है।"
+    ],
+    "requiredPPE": ["Nitrile Gloves", "Lab Coat"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Leaving draft doors open while recording the reading.",
+      "Leaning arms on the balance table while taking 4-decimal-place readings."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Analytical_balance",
+    "staffReviewed": { "by": "Dr. A. Verma", "date": "2026-02-12" }
+  },
+  {
+    "id": "tachometer_stopwatch",
+    "name": "Digital Optical Tachometer & Stopwatch",
+    "nameHi": "डिजिटल ऑप्टिकल टैकोमीटर एवं स्टॉपवॉच",
+    "category": "Mechanical",
+    "aliases": ["RPM Meter", "Photo Tachometer", "Stopwatch"],
+    "markerId": 13,
+    "specs": {
+      "RPM Measurement Range": "2.5 to 99,999 RPM (Non-contact Laser)",
+      "Target Distance": "50 to 500 mm (2 to 20 inches)",
+      "Resolution": "0.1 RPM (below 1000 RPM) / 1 RPM (above)",
+      "Accuracy": "±(0.05% + 1 digit)"
+    },
+    "parts": [
+      {
+        "id": "laser_emitter",
+        "name": "Laser Optical Emitter / Sensor Aperture",
+        "nameHi": "लेजर ऑप्टिकल सेंसर लेंस",
+        "bboxAnchor": { "x": 0.50, "y": 0.15 },
+        "markerOffset": { "x": 0.0, "y": 1.5, "z": 0.1 },
+        "detectorClass": "tacho_laser"
+      },
+      {
+        "id": "measure_trigger",
+        "name": "Side MEASURE Trigger Button",
+        "nameHi": "माप ट्रिगर बटन",
+        "bboxAnchor": { "x": 0.15, "y": 0.45 },
+        "markerOffset": { "x": -1.2, "y": 0.0, "z": 0.1 },
+        "detectorClass": "tacho_trigger"
+      },
+      {
+        "id": "mem_button",
+        "name": "MEMORY Recall Button (Max / Min / Last)",
+        "nameHi": "मेमोरी रिकॉल बटन (अधिकतम / न्यूनतम)",
+        "bboxAnchor": { "x": 0.50, "y": 0.75 },
+        "markerOffset": { "x": 0.0, "y": -1.0, "z": 0.1 },
+        "detectorClass": "tacho_mem_btn"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Affix a small strip of silver reflective tape (approx 12mm) onto the rotating shaft.",
+        "textHi": "घूमने वाली शाफ्ट पर 12 मिमी चांदी की परावर्तक टेप चिपकाएं।",
+        "targetPartId": "laser_emitter",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Ensure non-reflective shaft areas are clean or painted matte black for high contrast."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Aim the laser beam from 10-30 cm away directly at the reflective tape strip.",
+        "textHi": "लेजर किरण को 10-30 सेमी दूरी से सीधे परावर्तक टेप पर लक्षित करें।",
+        "targetPartId": "laser_emitter",
+        "arrow": "forward",
+        "expectedValue": null,
+        "tip": "Angle slightly off 90 degrees to avoid specular reflections from the shaft metal."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Press and hold the side MEASURE trigger button until reading stabilizes.",
+        "textHi": "साइड मेजर ट्रिगर बटन को तब तक दबाए रखें जब तक मान स्थिर न हो जाए।",
+        "targetPartId": "measure_trigger",
+        "arrow": "right",
+        "expectedValue": "1450 RPM",
+        "tip": "Monitor indicator marks every time the laser receives a valid reflection pulse."
+      }
+    ],
+    "safetyPrecautions": [
+      "ROTATING MACHINERY HAZARD: Stay well clear of high-speed chucks, pulleys, and belts.",
+      "LASER RADIATION: Class II laser beam. Never stare into the beam or shine towards eyes."
+    ],
+    "safetyPrecautionsHi": [
+      "घूमती हुई मशीनों से सुरक्षित दूरी बनाए रखें।",
+      "लेजर की ओर कभी भी सीधे आंखों से न देखें।"
+    ],
+    "requiredPPE": ["Safety Glasses", "No Loose Sleeves / Ties"],
+    "hazardLevel": "medium",
+    "commonMistakes": [
+      "Using two pieces of reflective tape, causing the meter to report double the real RPM.",
+      "Shining the laser into ambient fluorescent lights flickering at 100/120 Hz."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://en.wikipedia.org/wiki/Tachometer",
+    "staffReviewed": { "by": "Dr. V. Kulkarni", "date": "2026-02-10" }
+  },
+  {
+    "id": "safety_gear_kit",
+    "name": "Standard Laboratory PPE Suite",
+    "nameHi": "मानक प्रयोगशाला सुरक्षा किट (PPE)",
+    "category": "Safety Gear",
+    "aliases": ["PPE", "Safety Goggles", "Lab Coat", "Nitrile Gloves"],
+    "markerId": 14,
+    "specs": {
+      "Goggles Standard": "ANSI Z87.1+ / EN166 Optical Class 1 UV400",
+      "Coat Material": "100% 240 GSM Flame-Retardant Cotton (Knee Length)",
+      "Gloves": "Powder-free 5 mil Nitrile (Chemical Resistant ASTM D6319)"
+    },
+    "parts": [
+      {
+        "id": "goggles_shield",
+        "name": "Polycarbonate Impact & Splash Eyewear",
+        "nameHi": "पॉलीकार्बोनेट सुरक्षा चश्मा",
+        "bboxAnchor": { "x": 0.50, "y": 0.25 },
+        "markerOffset": { "x": 0.0, "y": 1.2, "z": 0.1 },
+        "detectorClass": "ppe_goggles"
+      },
+      {
+        "id": "lab_coat_body",
+        "name": "Fastened Knee-Length Cotton Lab Coat",
+        "nameHi": "कपास का पूरा लैब कोट",
+        "bboxAnchor": { "x": 0.50, "y": 0.60 },
+        "markerOffset": { "x": 0.0, "y": -0.4, "z": 0.0 },
+        "detectorClass": "ppe_coat"
+      },
+      {
+        "id": "nitrile_gloves",
+        "name": "Nitrile Disposable Chemical Gloves",
+        "nameHi": "नाइट्राइल दस्ताने",
+        "bboxAnchor": { "x": 0.25, "y": 0.85 },
+        "markerOffset": { "x": -1.2, "y": -1.5, "z": 0.1 },
+        "detectorClass": "ppe_gloves"
+      }
+    ],
+    "operatingSteps": [
+      {
+        "stepNumber": 1,
+        "text": "Put on and button all front snap closures of your knee-length cotton lab coat.",
+        "textHi": "लैब कोट पहनें और सभी बटन बंद करें।",
+        "targetPartId": "lab_coat_body",
+        "arrow": "down",
+        "expectedValue": "Secured",
+        "tip": "Leaving the lab coat open provides zero protection from chemical splashes."
+      },
+      {
+        "stepNumber": 2,
+        "text": "Don ANSI Z87.1 certified goggles, ensuring side shields seal snugly around eye sockets.",
+        "textHi": "सुरक्षा चश्मा पहनें और सुनिश्चित करें कि यह आंखों को पूरी तरह ढक ले।",
+        "targetPartId": "goggles_shield",
+        "arrow": "forward",
+        "expectedValue": "Sealed",
+        "tip": "Standard reading glasses do not offer impact or side splash resistance."
+      },
+      {
+        "stepNumber": 3,
+        "text": "Inspect nitrile gloves for pinholes before handling chemicals or biological agents.",
+        "textHi": "दस्ताने पहनने से पहले जांच लें कि उनमें छेद तो नहीं है।",
+        "targetPartId": "nitrile_gloves",
+        "arrow": "down",
+        "expectedValue": "Inspected",
+        "tip": "Replace immediately if gloves contact hazardous concentrated acids or solvents."
+      }
+    ],
+    "safetyPrecautions": [
+      "PPE IS YOUR LAST LINE OF DEFENSE: Engineering controls and safe handling procedures come first.",
+      "Remove gloves before touching door handles, phones, or communal keyboards.",
+      "Never wear loose synthetic fabrics (polyester/nylon) around open flames or hot soldering stations."
+    ],
+    "safetyPrecautionsHi": [
+      "पीपीई आपकी सुरक्षा की अंतिम ढाल है: सुरक्षा नियमों का पालन पहले करें।",
+      "कमरे के हैंडल या फोन छूने से पहले दस्ताने उतारें।",
+      "आग या गर्म उपकरणों के पास नायलॉन के कपड़े कभी न पहनें।"
+    ],
+    "requiredPPE": ["Safety Goggles", "Lab Coat", "Closed-Toe Shoes"],
+    "hazardLevel": "low",
+    "commonMistakes": [
+      "Wearing safety goggles on top of the head instead of over the eyes.",
+      "Entering the laboratory in open-toed sandals or flip-flops."
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    "manualLink": "https://www.osha.gov/personal-protective-equipment",
+    "staffReviewed": { "by": "Safety Officer M. Khan", "date": "2026-02-01" }
+  }
+]

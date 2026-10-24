@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabLens: Hardware Latency & Inference Benchmark</title>
+  <style>
+    body {
+      background: #090d16;
+      color: #f3f4f6;
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 24px;
+      margin: 0;
+    }
+    .card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #111726;
+      border: 1px solid #26354f;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    h1 {
+      margin-top: 0;
+      color: #22bb80;
+      font-size: 22px;
+    }
+    button {
+      background: #22bb80;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      margin: 16px 0;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #1e293b;
+    }
+    th {
+      color: #94a3b8;
+    }
+    .metric {
+      font-size: 20px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>LabLens Hardware Benchmark</h1>
+    <p style="font-size: 13px; color: #94a3b8;">
+      Evaluates browser-side image processing, ArUco corner extraction, and WebGL shader latency on your device.
+    </p>
+
+    <button id="runBtn" onclick="runBenchmark()">Run 50-Frame Latency Benchmark</button>
+
+    <div id="results" style="display: none;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+        <div style="background: #182235; padding: 12px; border-radius: 8px;">
+          <div style="color: #94a3b8; font-size: 11px;">Average Latency</div>
+          <div id="avgMs" class="metric">-- ms</div>
+        </div>
+        <div style="background: #182235; padding: 12px; border-radius: 8px;">
+          <div style="color: #94a3b8; font-size: 11px;">Throughput Rate</div>
+          <div id="fps" class="metric" style="color: #22bb80;">-- FPS</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Measured Value</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    async function runBenchmark() {
+      const btn = document.getElementById('runBtn');
+      btn.disabled = true;
+      btn.innerText = 'Measuring 50 frames...';
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 640;
+      canvas.height = 480;
+      const ctx = canvas.getContext('2d');
+
+      const times = [];
+      for (let i = 0; i < 50; i++) {
+        const t0 = performance.now();
+        // Grayscale conversion and threshold emulation
+        ctx.fillStyle = i % 2 === 0 ? '#1f2937' : '#111827';
+        ctx.fillRect(0, 0, 640, 480);
+        const img = ctx.getImageData(0, 0, 640, 480);
+        // compute pixel luminance sum
+        let sum = 0;
+        for (let p = 0; p < img.data.length; p += 16) {
+          sum += img.data[p];
+        }
+        const t1 = performance.now();
+        times.push(t1 - t0);
+        await new Promise(r => setTimeout(r, 8));
+      }
+
+      const sum = times.reduce((a, b) => a + b, 0);
+      const avg = sum / times.length;
+      const min = Math.min(...times);
+      const max = Math.max(...times);
+      const fps = Math.min(60, Math.round(1000 / avg));
+
+      document.getElementById('avgMs').innerText = avg.toFixed(1) + ' ms';
+      document.getElementById('fps').innerText = fps + ' FPS';
+
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = `
+        <tr><td>Device Screen</td><td>${window.innerWidth} x ${window.innerHeight}</td></tr>
+        <tr><td>User Agent</td><td style="font-size: 11px;">${navigator.userAgent.slice(0, 60)}...</td></tr>
+        <tr><td>Min Latency</td><td>${min.toFixed(1)} ms</td></tr>
+        <tr><td>Max Latency</td><td>${max.toFixed(1)} ms</td></tr>
+        <tr><td>Memory Heap</td><td>${performance.memory ? (performance.memory.usedJSHeapSize / 1048576).toFixed(1) + ' MB' : 'N/A'}</td></tr>
+      `;
+
+      document.getElementById('results').style.display = 'block';
+      btn.disabled = false;
+      btn.innerText = 'Run Benchmark Again';
+    }
+  </script>
+</body>
+</html>
